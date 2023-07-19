@@ -1,11 +1,11 @@
 @font-face {
   font-family: Gotham-Book;
-  src: url('./assets/Fonts/Gotham-Book.ttf');
+  src: url('https://cdn.glitch.global/59808df5-69c3-4e70-8c14-3c902dbafdc2/Gotham-Book.ttf?v=1689767689914');
 }
 
 @font-face {
   font-family: Knockout-HTF50;
-  src: url('./assets/Fonts/Knockout_HTF50-Welterweight_Regular.otf');
+  src: url('https://cdn.glitch.global/59808df5-69c3-4e70-8c14-3c902dbafdc2/Knockout%20HTF50-Welterweight%20Regular.otf?v=1689767690594');
 }
 
 .hidden {

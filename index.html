@@ -29,8 +29,6 @@
     <!-- import the webpage's stylesheet -->
     <link rel="stylesheet" href="/style.css" />
     <script type="module" src="./app.js"></script>
-    <!-- import the webpage's javascript file -->
-    <script src="/script.js" defer></script>
   </head>
   <body>
     <!-- loading screen -->
@@ -40,5 +38,95 @@
          <div class="spinner"></div>
       </div>
     </div>
+    <!-- instruction screen -->
+    <div id="instUI" class="absolute-fill">
+      <img id="instImg" src="assets/How_to_Claim.png">
+      <span>Can’t Scan? <a>Email Support</a></span>
+    </div>
+    <!-- scanner screen -->
+    <div class='container'>
+      <img id="scnUI" src="assets/scnImg.png">
+      <div id="scanning">
+        <div class="scanner">
+          <img src="./assets/scaner.png" alt="">
+          <img src="./assets/scanning-logo.gif" alt="">
+        </div>
+        <div class="info-bottom">
+          <img src="./assets/scanning.png" alt="">
+        </div>
+      </div>
+      <div id="verified">
+        <div class="scanner">
+          <img src="./assets/scaner.png" alt="">
+          <img src="./assets/logo-verified.gif" alt="">
+        </div>
+        <div class="info-bottom">
+          <img src="./assets/success.png" alt="">
+        </div>
+      </div>
+    </div>
+    <!-- details screen -->
+    <div id="detScreen" class="screen" style="display:none">
+      <div>
+        <img src="assets/detailsAssets/detBg.png" style="width: 100%; position: absolute; top: 20%;">
+        <img src="assets/detailsAssets/detTop.png" style="position: absolute;
+    width: 85%;
+    top: 12%;
+    left: 46%;
+    transform: translate(-50%, -50%);">
+        <!-- <img src="assets/detailsAssets/Enter-Your-Details.png"> -->
+      </div>
+      <div id="detWrap" class="wrapper">
+        <input type="tel" placeholder="Mobile" id="contactDet" class="detInput">
+        <span style="font-size: 0.8em; padding: 10px;">(No need for country code)</span>
+        <img id="subBtn" src="assets/detailsAssets/Submit.png" class="detBtn clickable">
+        <span style="font-size: 0.8em; text-align:center">We’ve sent your 2FA Code via SMS,<br/> wait a few moments then enter</span>
+        <input id="authCode" class="detInput" type="number" maxlength="4" pattern= "[0-9]" placeholder="2FA Code" style="background-color:#363636: color:white">
+        <img id="getCodeBtn" src="assets/detailsAssets/Get-Discount-Code.png" class="detBtn clickable">
+        <span id="stats" style="font-size: 0.8em; text-align:center"></span>
+      </div>
+    </div>
+    <!-- end screen -->
+    <div id="endScreen" class="screen">
+      <img src="assets/detailsAssets/detBg.png" style="width: 100%; position: absolute; top: 20%;">
+      <img src="assets/detailsAssets/endTop.png" style="position: absolute;width: 85%;top: 17%;left: 46%;transform: translate(-50%, -50%);">
+      <div id="endWrap" class="wrapper" style="top:35%">
+        <div id="codeHolder">
+          <span>GNSJGU7JHK</span>
+          <img id="copyBtn" src="assets/detailsAssets/Copy.png" style="width:60px; margin-right:15px" class="clickable">
+        </div>
+        <span style="font-size: 0.8em; text-align:center">(We’ve also sent this to you via SMS)</span>
+        <img id="redeemBtn" src="assets/detailsAssets/Redeem.png" class="clickable" style="width:300px; padding:10px; margin-top: 30px;">
+        <img src="assets/detailsAssets/Storehouse.png" style="width: 115px;margin-top: 60px;">
+      </div>
+    </div>
+    <!-- transition overlay -->
+    <div id="overlay" class="screen" style="z-index:7"></div>
+    <!-- A-frame scene -->
+    <a-scene
+      vr-mode-ui="enabled: false"
+      main-load-screen
+      handle-ui
+      xrextras-gesture-detector
+      landing-page
+      xrextras-loading
+      xrextras-runtime-error
+      renderer="colorManagement:true"
+      xrweb="disableWorldTracking: true"
+    >
+      <a-camera
+        position="0 4 10"
+        raycaster="objects: .cantap"
+        cursor="fuse: false; rayOrigin: mouse;"
+      >
+      </a-camera>
+
+      <a-light type="directional" intensity="0.5" position="1 1 1"></a-light>
+
+      <a-light type="ambient" intensity="0.7"></a-light>
+
+      <a-entity image-target-comp="name: gsDraughtStout" visible="false"></a-entity>
+      <a-entity image-target-comp="name: gsDraught" visible="false"></a-entity>
+    </a-scene>
   </body>
 </html>
