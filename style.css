@@ -1,25 +1,281 @@
-/* a minimalist set of CSS resets */
-
-/* default to border-box */
-html {
-  box-sizing: border-box;
-  font-size: 16px;
+@font-face {
+  font-family: Gotham-Book;
+  src: url('./assets/Fonts/Gotham-Book.ttf');
 }
 
-*, *:before, *:after {
-  box-sizing: inherit;
+@font-face {
+  font-family: Knockout-HTF50;
+  src: url('./assets/Fonts/Knockout_HTF50-Welterweight_Regular.otf');
 }
 
-/* adjust typography defaults */
-body {
-  margin: 1rem;
-  font-family: sans-serif;
-  line-height: 1.5;
+.hidden {
+  display: none !important;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 2s, opacity 0.2s linear;
+}
+.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.2s linear;
 }
 
-/* images and videos max out at full width */
-img,
-video {
-  height: auto;
-  max-width: 100%;
+.clickable:active {
+  transform: scale(0.86);
+}
+
+.prompt-box-8w {
+  background-color: #1b1b1b;
+  color: #fff;
+  border-radius: none;
+  text-transform: uppercase;
+}
+.prompt-button-8w {
+  background-color: #000;
+  color: #fff;
+  border-radius: none;
+  text-transform: uppercase;
+}
+.button-primary-8w {
+  background-color: #b39663;
+  color: #000;
+  border-radius: none;
+  text-transform: uppercase;
+}
+
+.poweredby-img {
+  display: none;
+}
+/* LOADING SCREEN */
+#poweredby {
+  width: 35vw;
+  max-width: 200px;
+  position: fixed;
+  bottom: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 30;
+  display: block;
+  filter: invert(1);
+}
+.gradient-move {
+  animation: gradient-move 10s linear infinite;
+}
+@keyframes gradient-move {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+#gradient {
+  z-index: 30;
+  /* add another 100% for each new color,
+  always repeat the first two colors in the array*/
+  /*background-size: 400% 400%;
+  background-image: linear-gradient(140deg, #7611B6, #563BA4, #3A4AAA, #7611B6, #563BA4);*/
+  background: black;
+}
+#cphLogo {
+  width: 100%;
+  position: fixed;
+  top: 11%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 11;
+  display: block;
+}
+.absolute-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.spinner {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-top: 3px solid rgba(255, 255, 255, 0.8);
+  border-right: 3px solid transparent;
+  border-radius: 50%;
+  animation: rotation 0.8s linear infinite;
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.fade-in {
+  animation: fade-in 0.25s linear forwards;
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.fade-out {
+  animation: fade-out 0.25s linear forwards;
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+#instUI {
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+}
+
+#instUI img {
+  width: 50vh;
+}
+
+#instUI span {
+  color: white;
+  position: absolute;
+  bottom: 20%;
+  font-family: Gotham-Book;
+  width: 100%;
+  text-align: center;
+}
+
+#instUI span a {
+  text-decoration: underline;
+  color: #b39663;
+}
+
+.container {
+  z-index: 3;
+  position: absolute;
+  top: 53%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#scnUI {
+  width: 27vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  opacity: 0;
+}
+
+.scanner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  width: 76vw;
+}
+
+.scanner {
+  width: 56vw;
+}
+
+.scanner img:last-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.info-bottom,
+#claimPrize {
+  position: absolute;
+  bottom: 12vh;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.info-bottom img,
+#claimPrize img {
+  width: 50vw;
+}
+
+#scanning,
+#verified {
+  display: none;
+}
+
+.screen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 8;
+  background-color: #090406;
+  opacity: 0;
+  display: none;
+}
+
+.wrapper {
+  position: absolute;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  top: 25%;
+  font-family: Gotham-Book;
+}
+
+.detInput {
+  width: 17em;
+  font-size: 1em;
+  padding: 15px;
+  border-radius: 9px;
+  border: none;
+  margin: 15px;
+}
+
+.detBtn {
+  width: 200px;
+  padding: 10px;
+}
+
+#codeHolder {
+  width: 85%;
+  height: 2em;
+  border: 1px solid #363636;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#codeHolder span {
+  color: #b39663;
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-left: 55px;
 }
